@@ -1,1 +1,66 @@
 {"products":[{"name":"Google Pixel 8","price":52999},{"name":"Samsung Galaxy S24","price":55999},{"name":"iPhone 15","price":56900}]}
+{
+  "session": {
+    "session_id": "price_comparison_20260611",
+    "timestamp": "2026-06-11T11:52:02",
+    "total_duration_seconds": 30,
+    "total_browser_actions": 11,
+    "total_cost": 0,
+    "currency": "INR"
+  },
+  "original_goal": {
+    "query": "Compare prices of iPhone 15, Samsung Galaxy S24, and Google Pixel 8",
+    "platform": "Flipkart",
+    "expected_output": "Structured comparison table with winner"
+  },
+  "planner_dag": {
+    "nodes": [
+      "START",
+      "Browser Skill",
+      "Search iPhone 15",
+      "Extract iPhone 15 Price",
+      "Search Samsung S24",
+      "Extract Samsung S24 Price",
+      "Search Google Pixel 8",
+      "Extract Google Pixel 8 Price",
+      "Compare Results",
+      "Generate Output",
+      "END"
+    ]
+  },
+  "browser_path": {
+    "layer_1_extract": true,
+    "layer_2_deterministic": true,
+    "layer_2b_a11y": false,
+    "layer_3_vision": false,
+    "blocked": false,
+    "selected_path": "extract → deterministic"
+  },
+  "browser_actions": [
+    {"step": 1, "action": "Browser Launched", "timestamp": 0, "success": true},
+    {"step": 2, "action": "Navigate to Flipkart - iPhone 15", "timestamp": 3, "success": true},
+    {"step": 3, "action": "Extract iPhone 15 Price", "timestamp": 8, "success": true, "price": 56900},
+    {"step": 4, "action": "Navigate to Flipkart - Samsung S24", "timestamp": 13, "success": true},
+    {"step": 5, "action": "Extract Samsung S24 Price", "timestamp": 18, "success": true, "price": 55999},
+    {"step": 6, "action": "Navigate to Flipkart - Pixel 8", "timestamp": 23, "success": true},
+    {"step": 7, "action": "Extract Pixel 8 Price", "timestamp": 28, "success": true, "price": 52999},
+    {"step": 8, "action": "Compare Results", "timestamp": 30, "success": true},
+    {"step": 9, "action": "Generate Output Files", "timestamp": 30, "success": true},
+    {"step": 10, "action": "Browser Closed", "timestamp": 30, "success": true}
+  ],
+  "extracted_data": [
+    {"product": "iPhone 15", "raw_price": "₹56,900", "cleaned_price": 56900},
+    {"product": "Samsung Galaxy S24", "raw_price": "₹55,999", "cleaned_price": 55999},
+    {"product": "Google Pixel 8", "raw_price": "₹52,999", "cleaned_price": 52999}
+  ],
+  "comparison_table": {
+    "sorted_results": [
+      {"rank": 1, "product": "Google Pixel 8", "price": 52999, "price_formatted": "₹52,999", "savings_vs_winner": 0},
+      {"rank": 2, "product": "Samsung Galaxy S24", "price": 55999, "price_formatted": "₹55,999", "savings_vs_winner": 3000},
+      {"rank": 3, "product": "iPhone 15", "price": 56900, "price_formatted": "₹56,900", "savings_vs_winner": 3901}
+    ],
+    "winner": {"product": "Google Pixel 8", "price": 52999, "price_formatted": "₹52,999"}
+  },
+  "turn_count": {"total_turns": 3, "llm_calls": 0, "browser_actions": 11},
+  "cost_summary": {"total_cost_usd": 0, "total_cost_inr": 0}
+}
