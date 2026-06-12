@@ -87,7 +87,7 @@ text
 }
 
 
-** ## 7. Final Comparison Table **
+## 7. Final Comparison Table 
 
 | Rank | Product | Price (₹) | Savings |
 |------|---------|-----------|---------|
